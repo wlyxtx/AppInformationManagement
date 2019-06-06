@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.sict.mapper.BackendUserMapper">
+    <select id="login" resultType="cn.edu.sict.pojo.BackendUser">
+        select user_code,user_name,id from backend_user
+        <where>
+            <if test="userCode!=null and userCode!=''">
+                and user_code=#{userCode}
+            </if>
+            <if test="userPassword!=null and userPassword!=''">
+                and user_password=#{userPassword}
+            </if>
+        </where>
+    </select>
+</mapper>

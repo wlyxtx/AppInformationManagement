@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.sict.mapper.AppCategoryMapper">
+
+    <select id="queryLevelOne" resultType="cn.edu.sict.pojo.AppCategory">
+        SELECT
+	id,
+	category_Code,
+	category_Name,
+	parent_Id
+FROM
+	app_category
+WHERE
+	parent_Id IS NULL
+
+    </select>
+    <select id="queryLevelByParentId" resultType="cn.edu.sict.pojo.AppCategory">
+        SELECT
+	id,
+	category_Code,
+	category_Name,
+	parent_Id
+FROM
+	app_category
+WHERE
+	parent_Id = #{id}
+    </select>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.sict.mapper.DevUserMapper">
+    <select id="queryByNamePwd" resultType="cn.edu.sict.pojo.DevUser">
+    select dev_name,id from dev_user
+   <where>
+       <if test="devName!=null and devName!=''">
+           and dev_code=#{devCode}
+       </if>
+       <if test="devPassword!=null and devPassword!=''">
+           and dev_password=#{devPassword}
+       </if>
+   </where>
+  </select>
+</mapper>
